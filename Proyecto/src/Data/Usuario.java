@@ -11,6 +11,7 @@ public class Usuario {
     private String direccion;
     private String titulo;
     private int anosExperiencia;
+    private String nombreUsuario;
 
     public Usuario() {
     }

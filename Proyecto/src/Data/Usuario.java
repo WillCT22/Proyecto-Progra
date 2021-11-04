@@ -3,6 +3,8 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.BufferedWriter;
 import java.io.IOException;
+import java.nio.file.Path;
+
 
 public class Usuario {
     private String nombre;
@@ -68,19 +70,19 @@ public class Usuario {
 
     }
     public void guardarDatos(String nombre, int telefono, String correo, String direccion,
-                             String titulo, int anosExperiencia,String ruta) throws IOException {
-        File datos = new File(ruta);
+                             String titulo, int anosExperiencia,Path ruta) throws IOException {
+        File datos = new File(String.valueOf(ruta));
         if(!datos.exists()){
             datos.createNewFile();
         }
-        FileWriter fw = new FileWriter(datos);
+        FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write("Nombre: "+nombre+"\n");
         bw.write("Telefono: "+telefono+"\n");
         bw.write("Correo: "+correo+"\n");
         bw.write("Direccion: "+direccion+"\n");
         bw.write("Titulos: "+titulo+"\n");
-        bw.write("Anos: "+anosExperiencia+"\n");
+        bw.write("Años: "+anosExperiencia+"\n");
         bw.write("***********\n");
         bw.close();
 

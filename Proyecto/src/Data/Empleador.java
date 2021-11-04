@@ -1,4 +1,9 @@
 package Data;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.file.Path;
 
 public class Empleador {
     private String puesto;
@@ -63,5 +68,24 @@ public class Empleador {
 
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
+    }
+    public void guardarDatos(String puesto, String empresa, String experienciMinima, String horario,
+                             String ubicacion, int salrio,Path ruta) throws IOException {
+        File datos = new File(String.valueOf(ruta));
+        if(!datos.exists()){
+            datos.createNewFile();
+        }
+        FileWriter fw = new FileWriter(datos,true);
+        BufferedWriter bw = new BufferedWriter(fw);
+        bw.write("Nombre: "+puesto+"\n");
+        bw.write("Telefono: "+empresa+"\n");
+        bw.write("Correo: "+experienciMinima+"\n");
+        bw.write("Direccion: "+horario+"\n");
+        bw.write("Titulos: "+ubicacion+"\n");
+        bw.write("Años: "+salrio+"\n");
+        bw.write("***********\n");
+        bw.close();
+
+
     }
 }

@@ -8,12 +8,20 @@ import java.nio.file.Path;
 
 public class Usuario {
     private String nombre;
-    private int telefono;
+    private String telefono;
     private String correo;
-    private String direccion;
     private String titulo;
-    private int anosExperiencia;
-    private String nombreUsuario;
+    private String anosExperiencia;
+
+
+    public Usuario(String nombre, String telefono, String correo, String titulo, String anosExperiencia) {
+        this.nombre = nombre;
+        this.telefono = telefono;
+        this.correo = correo;
+        this.titulo = titulo;
+        this.anosExperiencia = anosExperiencia;
+
+    }
 
     public Usuario() {
     }
@@ -26,11 +34,11 @@ public class Usuario {
         this.nombre = nombre;
     }
 
-    public int getTelefono() {
+    public String getTelefono() {
         return telefono;
     }
 
-    public void setTelefono(int telefono) {
+    public void setTelefono(String telefono) {
         this.telefono = telefono;
     }
 
@@ -42,14 +50,6 @@ public class Usuario {
         this.correo = correo;
     }
 
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
-    }
-
     public String getTitulo() {
         return titulo;
     }
@@ -58,19 +58,16 @@ public class Usuario {
         this.titulo = titulo;
     }
 
-    public int getAnosExperiencia() {
+    public String getAnosExperiencia() {
         return anosExperiencia;
     }
 
-    public void setAnosExperiencia(int anosExperiencia) {
+    public void setAnosExperiencia(String anosExperiencia) {
         this.anosExperiencia = anosExperiencia;
     }
 
-    public void subirCurriculum(){
-
-    }
-    public void guardarDatos(String nombre, int telefono, String correo, String direccion,
-                             String titulo, int anosExperiencia,Path ruta) throws IOException {
+    public void guardarDatos(String nombre, String telefono, String correo,
+                             String titulo, String anosExperiencia, Path ruta) throws IOException {
         File datos = new File(String.valueOf(ruta));
         if(!datos.exists()){
             datos.createNewFile();
@@ -80,7 +77,6 @@ public class Usuario {
         bw.write("Nombre: "+nombre+"\n");
         bw.write("Telefono: "+telefono+"\n");
         bw.write("Correo: "+correo+"\n");
-        bw.write("Direccion: "+direccion+"\n");
         bw.write("Titulos: "+titulo+"\n");
         bw.write("Años: "+anosExperiencia+"\n");
         bw.write("***********\n");

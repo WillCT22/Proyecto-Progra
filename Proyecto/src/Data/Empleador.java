@@ -10,16 +10,21 @@ public class Empleador {
     private String empresa;
     private String experienciMinima;
     private String horario;
-    private int salrio;
+    private String salrio;
     private String ubicacion;
+    private String correo;
 
-    public Empleador(String puesto, String empresa, String experienciMinima, String horario, int salrio, String ubicacion) {
+    public Empleador(String puesto, String empresa, String experienciMinima, String horario, String salrio, String ubicacion,String correo) {
         this.puesto = puesto;
         this.empresa = empresa;
         this.experienciMinima = experienciMinima;
         this.horario = horario;
         this.salrio = salrio;
         this.ubicacion = ubicacion;
+        this.correo = correo;
+    }
+
+    public Empleador() {
     }
 
     public String getPuesto() {
@@ -54,11 +59,11 @@ public class Empleador {
         this.horario = horario;
     }
 
-    public int getSalrio() {
+    public String getSalrio() {
         return salrio;
     }
 
-    public void setSalrio(int salrio) {
+    public void setSalrio(String salrio) {
         this.salrio = salrio;
     }
 
@@ -66,23 +71,32 @@ public class Empleador {
         return ubicacion;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
     public void setUbicacion(String ubicacion) {
         this.ubicacion = ubicacion;
     }
     public void guardarDatos(String puesto, String empresa, String experienciMinima, String horario,
-                             String ubicacion, int salrio,Path ruta) throws IOException {
+                             String ubicacion, String salrio,String correo,Path ruta) throws IOException {
         File datos = new File(String.valueOf(ruta));
         if(!datos.exists()){
             datos.createNewFile();
         }
         FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("Nombre: "+puesto+"\n");
-        bw.write("Telefono: "+empresa+"\n");
-        bw.write("Correo: "+experienciMinima+"\n");
-        bw.write("Direccion: "+horario+"\n");
-        bw.write("Titulos: "+ubicacion+"\n");
-        bw.write("Años: "+salrio+"\n");
+        bw.write("Puesto: "+puesto+"\n");
+        bw.write("Nombre de la empresa: "+empresa+"\n");
+        bw.write("Correo de la empresa: "+correo+"\n");
+        bw.write("Experiencia minima: "+experienciMinima+"\n");
+        bw.write("Horario: "+horario+"\n");
+        bw.write("Ubicación: "+ubicacion+"\n");
+        bw.write("Salario: "+salrio+"\n");
         bw.write("***********\n");
         bw.close();
 

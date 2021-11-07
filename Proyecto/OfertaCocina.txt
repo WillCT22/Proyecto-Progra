@@ -1,8 +1,15 @@
-Puesto: Chef ejecutivo
-Nombre de la empresa: Los faroles
-Correo de la empresa: farolescr@gmail.com
-Experiencia minima: 4
-Horario: Martes a Domingo 6am-9pm
-Ubicación: San José, Curridabat
-Salario: 789250
+Puesto:
+Chef Ejcutivo
+Nombre de la empresa:
+Los faroles
+Correo de la empresa:
+farolescr@gmail.com
+Experiencia minima:
+4
+Horario:
+Martes a Domingo 6am-9pm
+Ubicación:
+Curridabat
+Salario:
+750000
 ***********

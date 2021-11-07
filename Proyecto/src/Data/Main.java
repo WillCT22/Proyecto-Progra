@@ -3,6 +3,7 @@ import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.ArrayList;
 
 public class Main {
 
@@ -69,6 +70,13 @@ public class Main {
                                 persona.guardarDatos(nombre.getText(),telefono.getText(),correo.getText(),titulos.getText(),anosExp.getText(),file);
                                 break;
                             case 2:
+                                // Prueba!
+                                Lector prueba = new Lector();
+                                ArrayList<String> prueba2 = prueba.lerrPuestos("Cheff ejecutivo", Paths.get("OfertaCocina.txt"));
+                                for(int i = 0; i< prueba2.size(); i++){
+                                    System.out.println(prueba2.get(i));
+                                }
+
                                 break;
                             case 0:
                                 cont2 = 17;
@@ -85,7 +93,7 @@ public class Main {
                             case 1:
                                 String[] options = {"Mercadeo","Ingeniería","Cocina","Construcción","Medicina","Atención al cliente"};
 
-                                String campoLaboral = (String)JOptionPane.showInputDialog(null, "Seleccione su campo laboral:",
+                                String campoLaboral = (String)JOptionPane.showInputDialog(null, "Seleccione el campo laboral:",
                                         "Campo Laboral", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
                                 String ruta="";
                                 if(campoLaboral.equals("Mercadeo")){

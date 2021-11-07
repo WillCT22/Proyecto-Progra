@@ -90,13 +90,13 @@ public class Empleador {
         }
         FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("Puesto: "+puesto+"\n");
-        bw.write("Nombre de la empresa: "+empresa+"\n");
-        bw.write("Correo de la empresa: "+correo+"\n");
-        bw.write("Experiencia minima: "+experienciMinima+"\n");
-        bw.write("Horario: "+horario+"\n");
-        bw.write("Ubicación: "+ubicacion+"\n");
-        bw.write("Salario: "+salrio+"\n");
+        bw.write("Puesto:\n"+puesto+"\n");
+        bw.write("Nombre de la empresa:\n"+empresa+"\n");
+        bw.write("Correo de la empresa:\n"+correo+"\n");
+        bw.write("Experiencia minima:\n"+experienciMinima+"\n");
+        bw.write("Horario:\n"+horario+"\n");
+        bw.write("Ubicación:\n"+ubicacion+"\n");
+        bw.write("Salario:\n"+salrio+"\n");
         bw.write("***********\n");
         bw.close();
 

@@ -1,8 +1,15 @@
-Puesto: Gerente regional de marca
-Nombre de la empresa: Dove
-Correo de la empresa: recursoshumanosdove@gmail.com
-Experiencia minima: 8
-Horario: Lunes a viernes de 9am-5pm
-Ubicación: Coyol Alajueja
-Salario: 2500000
+Puesto: 
+Gerente regional de marca
+Nombre de la empresa: 
+Dove
+Correo de la empresa: 
+recursoshumanosdove@gmail.com
+Experiencia minima: 
+8
+Horario: 
+Lunes a viernes de 9am-5pm
+Ubicación: 
+Coyol Alajueja
+Salario: 
+2500000
 ***********

@@ -75,9 +75,9 @@ public class Usuario {
         FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
         bw.write("Nombre:\n"+nombre+"\n");
+        bw.write("Titulos:\n"+titulo+"\n");
         bw.write("Telefono:\n"+telefono+"\n");
         bw.write("Correo:\n"+correo+"\n");
-        bw.write("Titulos:\n"+titulo+"\n");
         bw.write("Años:\n"+anosExperiencia+"\n");
         bw.write("***********\n");
         bw.close();

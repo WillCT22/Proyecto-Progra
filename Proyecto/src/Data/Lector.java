@@ -2,6 +2,7 @@ package Data;
 import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
 public class Lector {
     private String puesto;
@@ -26,7 +27,52 @@ public class Lector {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
-    public  ArrayList<String> lerrPuestos(String puesto,Path ruta) throws IOException {
+    public String selecionCampoU(){
+        String ruta="";
+        String[] options = {"Mercadeo","Ingeniería","Cocina","Construcción","Medicina","Atención al cliente"};
+
+        String campoLaboral = (String)JOptionPane.showInputDialog(null, "Seleccione su campo laboral:",
+                "Colocame", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+        if(campoLaboral.equals("Mercadeo")){
+            ruta = "Mercadeo.txt";
+
+        }else if(campoLaboral.equals("Ingeniería")){
+            ruta = "Ingenieria.txt";
+        }else if(campoLaboral.equals("Cocina")){
+            ruta = "Cocina.txt";
+        }else if(campoLaboral.equals("Construcción")){
+            ruta = "Construccion.txt";
+        }else if(campoLaboral.equals("Medicina")){
+            ruta = "Medicina";
+        }else if(campoLaboral.equals("Atención al cliente")){
+            ruta = "AtencionCliente.txt";
+        }
+        return ruta;
+    }
+    public String seleccionCampoE(){
+        String[] options = {"Mercadeo","Ingeniería","Cocina","Construcción","Medicina","Atención al cliente"};
+
+        String campoLaboral = (String)JOptionPane.showInputDialog(null, "Seleccione el campo laboral:",
+                "Campo Laboral", JOptionPane.QUESTION_MESSAGE, null, options, options[2]);
+        String ruta="";
+        if(campoLaboral.equals("Mercadeo")){
+            ruta = "OfertaMercadeo.txt";
+
+        }else if(campoLaboral.equals("Ingeniería")){
+            ruta = "OfertaIngenieria.txt";
+        }else if(campoLaboral.equals("Cocina")){
+            ruta = "OfertaCocina.txt";
+        }else if(campoLaboral.equals("Construcción")){
+            ruta = "OfertaConstruccion.txt";
+        }else if(campoLaboral.equals("Medicina")){
+            ruta = "OfertaMedicina";
+        }else if(campoLaboral.equals("Atención al cliente")){
+            ruta = "OfertaAtencionCliente.txt";
+        }
+        return ruta;
+    }
+
+    public  ArrayList<String> leerArchivo(Path ruta) throws IOException {
         File archivo = new File(String.valueOf(ruta));
         ArrayList<String> lista = new ArrayList<>();
         FileReader fr = null;
@@ -52,6 +98,42 @@ public class Lector {
             }
         }
         return lista;
+
+    }
+    public void mostrarDatos(ArrayList<String>lista, String dato, String tipo){
+        int contador = 0;
+        for(int i = 0;i<lista.size();i++){
+            if(lista.get(i).equals(dato)){
+                contador++;
+            }
+        }
+        String[] vector = new String[contador];
+        int z = 0;
+        for(int j = 0;j<lista.size();j++){
+            if(lista.get(j).equals(dato)){
+                vector[z]=lista.get(j+1);
+                z++;
+            }
+        }
+
+        String seleccion = (String)JOptionPane.showInputDialog(null,"Seleccione una de las opciones","Colocame",
+                JOptionPane.QUESTION_MESSAGE,null,vector,vector[0]);
+        for(int x = 0;x<lista.size();x++){
+            if(lista.get(x).equals(seleccion)){
+                if(tipo.equals("Usuario")){
+                    JOptionPane.showMessageDialog(null,lista.get(x-1)+lista.get(x)+"\n"
+                            +lista.get(x+1)+" "+lista.get(x+2)+"\n"+lista.get(x+3)+" "+lista.get(x+4)+"\n"+lista.get(x+5)+" "+lista.get(x+6)+"\n"
+                            +lista.get(x+7)+" "+lista.get(x+8)+"\n"+lista.get(x+9)+" "+lista.get(x+10)+"\n"+lista.get(x+11)+" "+lista.get(x+12),"Colocame",JOptionPane.INFORMATION_MESSAGE);
+                }else if(tipo.equals("Empleador")){
+                    JOptionPane.showMessageDialog(null,lista.get(x-1)+lista.get(x)+"\n"
+                            +lista.get(x+1)+" "+lista.get(x+2)+"\n"+lista.get(x+3)+" "+lista.get(x+4)+"\n"+lista.get(x+5)+" "+lista.get(x+6)+"\n"
+                            +lista.get(x+7)+" "+lista.get(x+8),"Colocame",JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        }
+
+
+
 
     }
 }

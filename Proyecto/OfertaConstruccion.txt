@@ -1,0 +1,15 @@
+Puesto:
+Albañil(4892)
+Nombre de la empresa:
+Constructora Gimenez
+Correo de la empresa:
+contr_gimenez@gmail.com
+Experiencia minima:
+3 años
+Horario:
+Lunes a Viernes 6am-4pm
+Ubicación:
+Liberia centro
+Salario:
+350000 colones
+***********

@@ -1,4 +1,6 @@
 package Data;
+import org.jetbrains.annotations.NotNull;
+
 import java.io.*;
 import java.nio.file.Path;
 import java.util.ArrayList;
@@ -27,6 +29,12 @@ public class Lector {
     public void setTitulo(String titulo) {
         this.titulo = titulo;
     }
+    /**
+     * Metodo para encontrar la dirección del archivo para los usuarios
+     * @return String ruta
+     * @since version 2
+     * @author William
+     */
     public String selecionCampoU(){
         String ruta="";
         String[] options = {"Mercadeo","Ingeniería","Cocina","Construcción","Medicina","Atención al cliente"};
@@ -43,12 +51,18 @@ public class Lector {
         }else if(campoLaboral.equals("Construcción")){
             ruta = "Construccion.txt";
         }else if(campoLaboral.equals("Medicina")){
-            ruta = "Medicina";
+            ruta = "Medicina.txt";
         }else if(campoLaboral.equals("Atención al cliente")){
             ruta = "AtencionCliente.txt";
         }
         return ruta;
     }
+    /**
+     * Metodo para encontrar la dirección del archivo para los empleadores
+     * @return String ruta
+     * @since version 2
+     * @author William
+     */
     public String seleccionCampoE(){
         String[] options = {"Mercadeo","Ingeniería","Cocina","Construcción","Medicina","Atención al cliente"};
 
@@ -65,12 +79,19 @@ public class Lector {
         }else if(campoLaboral.equals("Construcción")){
             ruta = "OfertaConstruccion.txt";
         }else if(campoLaboral.equals("Medicina")){
-            ruta = "OfertaMedicina";
+            ruta = "OfertaMedicina.txt";
         }else if(campoLaboral.equals("Atención al cliente")){
             ruta = "OfertaAtencionCliente.txt";
         }
         return ruta;
     }
+    /**
+     * Meotodo para leer el archivo seleccioneado y guardarlo en un ArrayList
+     * @param ruta direccion del archivo
+     * @return ArrayList<Stirng> con el archivo guradado
+     * @since version 3
+     * @author William
+     */
 
     public  ArrayList<String> leerArchivo(Path ruta) throws IOException {
         File archivo = new File(String.valueOf(ruta));
@@ -100,7 +121,14 @@ public class Lector {
         return lista;
 
     }
-    public void mostrarDatos(ArrayList<String>lista, String dato, String tipo){
+    /**
+     * Metodo para mostrar los datos al usuario del archivo deseado.
+     * @param lista,dato,tipo ArrayList<String> con el archivo deseado, para clave para la busqueda, tipo de usuario
+     * @return void
+     * @since version 3
+     * @author William
+     */
+    public void mostrarDatos(@NotNull ArrayList<String>lista, String dato, String tipo){
         int contador = 0;
         for(int i = 0;i<lista.size();i++){
             if(lista.get(i).equals(dato)){
@@ -121,11 +149,11 @@ public class Lector {
         for(int x = 0;x<lista.size();x++){
             if(lista.get(x).equals(seleccion)){
                 if(tipo.equals("Usuario")){
-                    JOptionPane.showMessageDialog(null,lista.get(x-1)+lista.get(x)+"\n"
+                    JOptionPane.showMessageDialog(null,lista.get(x-1)+" "+lista.get(x)+"\n"
                             +lista.get(x+1)+" "+lista.get(x+2)+"\n"+lista.get(x+3)+" "+lista.get(x+4)+"\n"+lista.get(x+5)+" "+lista.get(x+6)+"\n"
                             +lista.get(x+7)+" "+lista.get(x+8)+"\n"+lista.get(x+9)+" "+lista.get(x+10)+"\n"+lista.get(x+11)+" "+lista.get(x+12),"Colocame",JOptionPane.INFORMATION_MESSAGE);
                 }else if(tipo.equals("Empleador")){
-                    JOptionPane.showMessageDialog(null,lista.get(x-1)+lista.get(x)+"\n"
+                    JOptionPane.showMessageDialog(null,lista.get(x-1)+" "+lista.get(x)+"\n"
                             +lista.get(x+1)+" "+lista.get(x+2)+"\n"+lista.get(x+3)+" "+lista.get(x+4)+"\n"+lista.get(x+5)+" "+lista.get(x+6)+"\n"
                             +lista.get(x+7)+" "+lista.get(x+8),"Colocame",JOptionPane.INFORMATION_MESSAGE);
                 }

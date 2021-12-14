@@ -3,24 +3,41 @@ import javax.swing.*;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
+
 
 public class Main {
 
 
     public static void main(String[] args) throws IOException {
         int cont = 0;
+        /**
+         * Menu principal del programa
+         * @since version 1
+         */
         while(cont==0){
             int op = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione una opción\n"+
-                    "1) Busco empleo\n"+"2) Busco un trabajador\n"+"0) Salir","Colocame",JOptionPane.QUESTION_MESSAGE));
+                    "1) En busca de un nuevo empleo\n"+"2) En busca de un nuevo trabajador\n"+"0) Salir","¡Colócame!",JOptionPane.QUESTION_MESSAGE));
             switch (op){
                 case 1:
                     int cont2 = 2;
+                    /**
+                     * Menu de usuario del primer tipo, en busca de un empleo
+                     * Brinda las dos posibles obciones para el usuario
+                     * @since version 2
+                     * @author William
+                     */
                     while (cont2==2){
                         int op2 = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione una opción\n"+
-                                "1) Subir Datos personales\n"+"2) Buscar ofertas de empleo\n"+"0) Regresar"));
+                                "1) Subir Datos personales\n"+"2) Revisar ofertas de empleo\n"+"0) Regresar","¡Colócame!",JOptionPane.QUESTION_MESSAGE));
                         switch (op2){
                             case 1:
+                                /**
+                                 * Registro de los datos del usuario
+
+                                 * @param String nombre, telefono, correo, titulos, años de experiencia, codigo de identificación
+                                 * @since version 2
+                                 * @author William
+                                 */
                                 Lector campoLab = new Lector();
                                 String ruta= campoLab.selecionCampoU();
 
@@ -29,11 +46,14 @@ public class Main {
                                 JTextField correo = new JTextField(5);
                                 JTextField titulos = new JTextField(5);
                                 JTextField anosExp = new JTextField(5);
+                                JTextField codigoIdentificacion = new JTextField(5);
 
                                 JPanel datos = new JPanel();
                                 datos.setLayout(new BoxLayout(datos, BoxLayout.Y_AXIS));
                                 datos.add(new JLabel("Nombre: "));
                                 datos.add(nombre);
+                                datos.add(new JLabel("Codigo de identificación: "));
+                                datos.add(codigoIdentificacion);
                                 datos.add(Box.createVerticalStrut(5));
                                 datos.add(new JLabel("Telefono: "));
                                 datos.add(telefono);
@@ -50,11 +70,16 @@ public class Main {
                                 JOptionPane.showConfirmDialog(null, datos,
                                         "Ingrse sus datos personales", JOptionPane.OK_CANCEL_OPTION);
 
-                                Usuario persona = new Usuario(nombre.getText(),telefono.getText(),correo.getText(),titulos.getText(),anosExp.getText());
+                                Usuario persona = new Usuario(nombre.getText(),telefono.getText(),correo.getText(),titulos.getText(),anosExp.getText(),codigoIdentificacion.getText());
                                 Path file = Paths.get(ruta);
-                                persona.guardarDatos(nombre.getText(),telefono.getText(),correo.getText(),titulos.getText(),anosExp.getText(),file);
+                                persona.guardarDatos(nombre.getText(),telefono.getText(),correo.getText(),titulos.getText(),anosExp.getText(),codigoIdentificacion.getText(),file);
                                 break;
                             case 2:
+                                /**
+                                 * Le muestra al usuario las ofertas de empleo
+                                 * @since version 3
+                                 * @author William
+                                 */
 
                                 Lector usuario1 = new Lector();
                                 Path file2 = Paths.get(usuario1.seleccionCampoE());
@@ -69,11 +94,23 @@ public class Main {
                     }break;
                 case 2:
                     int cont3 = 4;
+                    /**
+                     * Menu para el segundo tipo de usuario, empleador
+                     * Brinda las dos posibles obciones para el usuario
+                     * @since version 2
+                     * @author William
+                     */
                     while (cont3==4){
                         int op3 = Integer.parseInt(JOptionPane.showInputDialog(null,"Seleccione una opción\n"+
-                                "1) Subir oferta de empleo\n"+"2) Buscar trabajadores\n"+"0) Regresar"));
+                                "1) Subir oferta de empleo\n"+"2) Revisar aspirantes \n"+"0) Regresar","¡Colócame!",JOptionPane.QUESTION_MESSAGE));
                         switch (op3){
                             case 1:
+                                /**
+                                 * Recopila los datos de un nuevo puesto de trabajo agregado por el usuario
+                                 * @param String puesto, empresa, correo, horario, años de experiencia, salario, ubicacion, codigo de identificaión
+                                 * @since version 3
+                                 * @author William
+                                 */
                                 Lector campoLab = new Lector();
                                 String ruta = campoLab.seleccionCampoE();
 
@@ -84,6 +121,7 @@ public class Main {
                                 JTextField anosExp = new JTextField(5);
                                 JTextField salario = new JTextField(5);
                                 JTextField ubicaion = new JTextField(5);
+                                JTextField codigoIdentificacion = new JTextField(5);
 
                                 JPanel datos = new JPanel();
                                 datos.setLayout(new BoxLayout(datos, BoxLayout.Y_AXIS));
@@ -92,6 +130,8 @@ public class Main {
                                 datos.add(Box.createVerticalStrut(5));
                                 datos.add(new JLabel("Empresa: "));
                                 datos.add(empresa);
+                                datos.add(new JLabel("Codigo de Identificación: "));
+                                datos.add(codigoIdentificacion);
                                 datos.add(Box.createVerticalStrut(5));
                                 datos.add(new JLabel("Correo: "));
                                 datos.add(correo);
@@ -110,12 +150,18 @@ public class Main {
                                 JOptionPane.showConfirmDialog(null, datos,
                                         "Ingrse los datos del puesto", JOptionPane.OK_CANCEL_OPTION);
 
-                                Empleador jefe = new Empleador();
+                                Empleador jefe = new Empleador(puesto.getText(),empresa.getText(),anosExp.getText(),horario.getText(),ubicaion.getText(),salario.getText(),
+                                        correo.getText(),codigoIdentificacion.getText());
                                 Path file = Paths.get(ruta);
-                                jefe.guardarDatos(puesto.getText(),empresa.getText(),anosExp.getText(),horario.getText(),ubicaion.getText(),salario.getText(),
-                                        correo.getText(),file);
+                                jefe.guardarDatos(jefe.getPuesto(), jefe.getEmpresa(), jefe.getExperienciMinima(), jefe.getHorario(),
+                                        jefe.getUbicacion(), jefe.getSalrio(), jefe.getCorreo(), jefe.getCodigoIdentificacion(), file);
                                 break;
                             case 2:
+                                /**
+                                 * Muestra la lista de postulantes de empleo
+                                 * @since version 3
+                                 * @author William
+                                 */
                                 Lector usuario2 = new Lector();
                                 Path file3 = Paths.get(usuario2.selecionCampoU());
                                 usuario2.mostrarDatos(usuario2.leerArchivo(file3),"Nombre:","Empleador");
@@ -130,7 +176,7 @@ public class Main {
                     }
                     break;
                 case 0:
-                    JOptionPane.showMessageDialog(null,"¡Gracias por usar el progrma!");
+                    JOptionPane.showMessageDialog(null,"¡Gracias por usar el programa!","¡Colócame!",JOptionPane.INFORMATION_MESSAGE);
                     cont++;
                     break;
             }

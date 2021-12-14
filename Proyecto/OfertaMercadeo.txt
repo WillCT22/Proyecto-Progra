@@ -1,0 +1,30 @@
+Puesto:
+Gerente regional de marca(7845)
+Nombre de la empresa:
+Cocacola
+Correo de la empresa:
+cocacolacr@gmail.com
+Experiencia minima:
+10 años
+Horario:
+Lunes a Viernes 9am-5pm
+Ubicación:
+Calle Blancos
+Salario:
+2800000 colones
+***********
+Puesto:
+Gerente de redes Sociales(2019)
+Nombre de la empresa:
+Sabemas
+Correo de la empresa:
+sabemas.ac.cr
+Experiencia minima:
+5 años
+Horario:
+Luens a Viernes 8am-5pm
+Ubicación:
+Paseo colon
+Salario:
+835000colones
+***********

@@ -12,18 +12,28 @@ public class Usuario {
     private String correo;
     private String titulo;
     private String anosExperiencia;
+    private String codigoIdentificacion;
 
 
-    public Usuario(String nombre, String telefono, String correo, String titulo, String anosExperiencia) {
+    public Usuario(String nombre, String telefono, String correo, String titulo, String anosExperiencia, String codigoIdentificacion) {
         this.nombre = nombre;
         this.telefono = telefono;
         this.correo = correo;
         this.titulo = titulo;
         this.anosExperiencia = anosExperiencia;
+        this.codigoIdentificacion = codigoIdentificacion;
 
     }
 
     public Usuario() {
+    }
+
+    public String getCodigoIdentificacion() {
+        return codigoIdentificacion;
+    }
+
+    public void setCodigoIdentificacion(String codigoIdentificacion) {
+        this.codigoIdentificacion = codigoIdentificacion;
     }
 
     public String getNombre() {
@@ -65,20 +75,27 @@ public class Usuario {
     public void setAnosExperiencia(String anosExperiencia) {
         this.anosExperiencia = anosExperiencia;
     }
+    /**
+     * Metodo para almacenar los datos de los usuarios
+     * @param nombre,telefono,correo,titulo,anosExperiencia,codigoIdentificacion,ruta
+     * @return void
+     * @since version 2
+     * @author William
+     */
 
     public void guardarDatos(String nombre, String telefono, String correo,
-                             String titulo, String anosExperiencia, Path ruta) throws IOException {
+                             String titulo, String anosExperiencia, String codigoIdentificacion, Path ruta) throws IOException {
         File datos = new File(String.valueOf(ruta));
         if(!datos.exists()){
             datos.createNewFile();
         }
         FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("Nombre:\n"+nombre+"\n");
+        bw.write("Nombre:\n"+nombre+"("+codigoIdentificacion+")"+"\n");
         bw.write("Titulos:\n"+titulo+"\n");
         bw.write("Telefono:\n"+telefono+"\n");
         bw.write("Correo:\n"+correo+"\n");
-        bw.write("Años:\n"+anosExperiencia+"\n");
+        bw.write("Años de experiencia:\n"+anosExperiencia+" años\n");
         bw.write("***********\n");
         bw.close();
 

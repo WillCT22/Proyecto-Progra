@@ -13,8 +13,9 @@ public class Empleador {
     private String salrio;
     private String ubicacion;
     private String correo;
+    private String codigoIdentificacion;
 
-    public Empleador(String puesto, String empresa, String experienciMinima, String horario, String salrio, String ubicacion,String correo) {
+    public Empleador(String puesto, String empresa, String experienciMinima, String horario, String salrio, String ubicacion,String correo, String codigoIdentificacion) {
         this.puesto = puesto;
         this.empresa = empresa;
         this.experienciMinima = experienciMinima;
@@ -22,9 +23,18 @@ public class Empleador {
         this.salrio = salrio;
         this.ubicacion = ubicacion;
         this.correo = correo;
+        this.codigoIdentificacion = codigoIdentificacion;
     }
 
     public Empleador() {
+    }
+
+    public String getCodigoIdentificacion() {
+        return codigoIdentificacion;
+    }
+
+    public void setCodigoIdentificacion(String codigoIdentificacion) {
+        this.codigoIdentificacion = codigoIdentificacion;
     }
 
     public String getPuesto() {
@@ -83,20 +93,20 @@ public class Empleador {
         this.ubicacion = ubicacion;
     }
     public void guardarDatos(String puesto, String empresa, String experienciMinima, String horario,
-                             String ubicacion, String salrio,String correo,Path ruta) throws IOException {
+                             String ubicacion, String salrio,String correo, String codigoIdentificacion, Path ruta) throws IOException {
         File datos = new File(String.valueOf(ruta));
         if(!datos.exists()){
             datos.createNewFile();
         }
         FileWriter fw = new FileWriter(datos,true);
         BufferedWriter bw = new BufferedWriter(fw);
-        bw.write("Puesto:\n"+puesto+"\n");
+        bw.write("Puesto:\n"+puesto+"("+codigoIdentificacion+")"+"\n");
         bw.write("Nombre de la empresa:\n"+empresa+"\n");
         bw.write("Correo de la empresa:\n"+correo+"\n");
-        bw.write("Experiencia minima:\n"+experienciMinima+"\n");
+        bw.write("Experiencia minima:\n"+experienciMinima+" años\n");
         bw.write("Horario:\n"+horario+"\n");
         bw.write("Ubicación:\n"+ubicacion+"\n");
-        bw.write("Salario:\n"+salrio+"\n");
+        bw.write("Salario:\n"+salrio+" colones\n");
         bw.write("***********\n");
         bw.close();
 

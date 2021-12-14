@@ -1,0 +1,30 @@
+Puesto:
+Chef Ejecutivo(3296)
+Nombre de la empresa:
+Los faroles
+Correo de la empresa:
+faroles_cr@gmail.com
+Experiencia minima:
+5 años
+Horario:
+Martes a Domingo de 6am a 9pm
+Ubicación:
+Heredia centro
+Salario:
+758000 colones
+***********
+Puesto:
+Sub Chef(0293)
+Nombre de la empresa:
+Los faroles
+Correo de la empresa:
+faroles@gmail.com
+Experiencia minima:
+4 años
+Horario:
+lunes a vienrenes 6am a 5 pm
+Ubicación:
+
+Salario:
+ colones
+***********

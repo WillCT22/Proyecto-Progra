@@ -1,0 +1,30 @@
+Puesto:
+Diseñador Grafico(1256)
+Nombre de la empresa:
+Gallito
+Correo de la empresa:
+gallito@.ac.cr
+Experiencia minima:
+3 años
+Horario:
+Lunes a Viernes 8am -5pm
+Ubicación:
+Coyol de alajuela
+Salario:
+750000 colones
+***********
+Puesto:
+Disñaddor de sistemas mecatronicos(0593)
+Nombre de la empresa:
+Ey
+Correo de la empresa:
+ey.ac.cr
+Experiencia minima:
+ 4 años
+Horario:
+Lunes a Viernes 9am a 5pm
+Ubicación:
+Guadalupe
+Salario:
+820000 colones
+***********
